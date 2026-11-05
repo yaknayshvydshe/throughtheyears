@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Through the Years — Galeria</title>
+  <meta name="description" content="Uma galeria de fotos com data, hora e lugar de cada momento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/styles.css">
+</head>
+<body>
+
+  <!-- Hero: a primeira foto da galeria é usada como fundo (definida em script.js) -->
+  <header class="hero">
+    <p class="hero__eyebrow" id="heroEyebrow">Galeria</p>
+    <h1 class="hero__title">Through the <em>Years</em></h1>
+    <p class="hero__subtitle" id="heroSubtitle">Cada foto guarda um dia, uma hora e um lugar.</p>
+    <a href="#galeria" class="hero__cta">Ver galeria</a>
+  </header>
+
+  <main id="galeria" class="gallery">
+    <section class="filters" aria-labelledby="filtersLabel">
+      <h2 class="filters__label" id="filtersLabel">Cidades</h2>
+      <div class="filters__list" id="filters" role="group" aria-labelledby="filtersLabel"></div>
+    </section>
+
+    <p class="gallery__count" id="count" aria-live="polite"></p>
+
+    <ul class="grid" id="grid"></ul>
+
+    <button class="load-more" id="loadMore" type="button">Carregar mais</button>
+  </main>
+
+  <!-- Modal nativo: fecha com Esc, botão ou clique fora da foto -->
+  <dialog class="modal" id="modal" aria-labelledby="modalTitle">
+    <div class="modal__stage" id="modalStage">
+      <button class="modal__close" id="modalClose" type="button" aria-label="Fechar">&times;</button>
+      <button class="modal__nav modal__nav--prev" id="modalPrev" type="button" aria-label="Foto anterior">&#8249;</button>
+
+      <figure class="modal__figure">
+        <img class="modal__img" id="modalImg" src="" alt="">
+        <figcaption class="modal__info">
+          <h2 class="modal__title" id="modalTitle"></h2>
+          <p class="modal__meta" id="modalMeta"></p>
+          <p class="modal__desc" id="modalDesc"></p>
+          <p class="modal__counter" id="modalCounter" aria-live="polite"></p>
+        </figcaption>
+      </figure>
+
+      <button class="modal__nav modal__nav--next" id="modalNext" type="button" aria-label="Próxima foto">&#8250;</button>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <p>Through the Years &middot; based in 2025/2026 relationship</p>
+  </footer>
+
+  <script src="./dist/backend/data.js"></script>
+  <script src="./dist/backend/script.js"></script>
+</body>
+</html>
